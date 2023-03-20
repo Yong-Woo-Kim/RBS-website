@@ -2,30 +2,20 @@ from flask import Flask, render_template, jsonify
 import database as db
 
 app = Flask(__name__)
-
-Contents = [{
-  'title': 'Teacher',
-  'display': 'Teacher Name'
-}, {
-  'title': 'Student',
-  'display': 'Student Name'
-}, {
-  'title': 'Event'
-}, {
-  'title': 'mobile',
-  'display': '041-555-7777'
-}]
-
-
+  
 @app.route('/')
 def hello_rbs():
-  result = []
+  result = ''
+  i = 0
   t_name = db.load_teacher_name()
-  # for row in t_name:
-  #   result.append(row)
-
-  print(result)
-  return render_template('home.html', contents=t_name, school='RBS')
+  for k, v in t_name:
+    i += 1
+    if i is len(t_name):
+      result = result + v
+    else:
+      result = result + v + ','
+  teacher_name = [{'title': 'Teacher', 'display': result}]
+  return render_template('home.html', contents=teacher_name, school='RBS')
 
 
 @app.route('/teacher')
