@@ -23,7 +23,7 @@ def hello_rbs():
   t_name = db.load_teacher_name()
   # for row in t_name:
   #   result.append(row)
-  
+
   print(result)
   return render_template('home.html', contents=t_name, school='RBS')
 
