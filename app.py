@@ -5,17 +5,29 @@ app = Flask(__name__)
   
 @app.route('/')
 def hello_rbs():
-  result = ''
+  t_result = ''
   i = 0
   t_name = db.load_teacher_name()
   for k, v in t_name:
     i += 1
     if i is len(t_name):
-      result = result + v
+      t_result = t_result + v
     else:
-      result = result + v + ','
-  teacher_name = [{'title': 'Teacher', 'display': result}]
-  return render_template('home.html', contents=teacher_name, school='RBS')
+      t_result = t_result + v + ','
+      
+  s_result = ''
+  i = 0
+  s_name = db.load_student_name()
+  for k, v in s_name:
+    i += 1
+    if i is len(s_name):
+      s_result = s_result + v
+    else:
+      s_result = s_result + v + ','
+      
+  Contents = [{'title': 'Teacher', 'display': t_result},
+                 {'title': 'Student', 'display': s_result}]
+  return render_template('home.html', contents=Contents, school='RBS')
 
 
 @app.route('/teacher')
