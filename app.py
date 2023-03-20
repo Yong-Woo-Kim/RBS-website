@@ -20,7 +20,7 @@ def hello_rbs():
 
 @app.route('/teacher')
 def list_teacher():
-  return jsonify(Contents)
+  return 'hello' #jsonify(Contents)
 
 
 if __name__ == '__main__':
