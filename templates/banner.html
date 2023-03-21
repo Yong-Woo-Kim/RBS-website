@@ -5,4 +5,8 @@
     margin-bottom: 16px;
   }
 </style>
-<img class="img-fluid" id="banner" src="https://rbs-website-1.yong-woo-kim.repl.co/static/RBS-title.jpg">
+{% if title == 'RBS' %}
+  <img class="img-fluid" id="banner" src="https://rbs-website-1.yong-woo-kim.repl.co/static/RBS-title.jpg">
+{% else %}
+  <img class="img-fluid" id="banner" src="https://rbs-website-1.yong-woo-kim.repl.co/static/teacher.jpg">
+{% endif %}

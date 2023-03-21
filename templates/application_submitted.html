@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Application Submitted</title>
+</head>
+<body>
+  {% include 'nav.html' %}
+  {% include 'banner.html' %}
+  <div class="container">
+    <h1 class="text-center mt-2 mb-4"></h1>
+    <h4>Full Name</h4>
+    <div>{{application['name']}}</div>
+    
+    <h4>Birthday</h4>
+    <div>{{application['birthday']}}</div>
+  
+    <h4>Gender</h4>
+    <div>{{application['gender']}}</div>
+  
+    <h4>Mobile</h4>
+    <div>{{application['mobile']}}</div>
+  
+    <h4>Address</h4>
+    <div>{{application['address']}}</div>
+  </div>
+  {% include 'footer.html' %}
+</body>
+</html>
