@@ -39,8 +39,8 @@ def load_teacher(id):
 
 def add_teacher(data):
   c.execute(
-    'INSERT INTO teacher (id, name, birthday, gender, mobile, address) VALUES (?,?,?,?,?,?)',
-    ('10', data['name'], data['birthday'], data['gender'], data['mobile'],
+    'INSERT INTO teacher (name, birthday, gender, mobile, address) VALUES (?,?,?,?,?)',
+    (data['name'], data['birthday'], data['gender'], data['mobile'],
      data['address']))
   conn.commit()
 
