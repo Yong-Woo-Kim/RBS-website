@@ -37,17 +37,16 @@ def read_table_column():
     list_name = list(column_info[0].split(','))
     return list_name
 
+def select_teacher(t_name):
+    result = c.execute(f'SELECT * FROM teacher WHERE name="{t_name}"')
+    teacher_data = result.fetchall()
+    return teacher_data
+  
 def load_student_name():
   result = c.execute('select "display", name from student')
   s_name = result.fetchall()
   result = make_list(s_name)
   return result
-
-
-# def load_teacher(id):
-#   result = c.execute('select * from teacher where id = ?', (id)).fetchall()
-#   print(result)
-
 
 def add_teacher(data):
   c.execute(
@@ -56,5 +55,10 @@ def add_teacher(data):
      data['address']))
   conn.commit()
 
+def update_teacher(data):
+  c.execute(
+    'UPDATE teacher SET birthday=?, gender=?, mobile=?, address=?, career=?, charge=? WHERE name=?',
+    (data['birthday'], data['gender'], data['mobile'],
+     data['address'], data['career'], data['charge'], data['name'] ))
+  conn.commit()
 
-# load_teacher('1')

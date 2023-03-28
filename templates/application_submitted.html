@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% include 'bootstrap.html' %}
   <title>Application Submitted</title>
 </head>
 <body>
@@ -11,21 +12,68 @@
   {% include 'banner.html' %}
   <div class="container">
     <h1 class="text-center mt-2 mb-4"></h1>
-    <h4>Full Name</h4>
-    <div>{{application['name']}}</div>
+    <h4>Application Form</h4>
+    <form action="/apply/{{info}}" method="POST">
+      <div class="mb-2">
+        <label for="">Full Name</label><br>
+        <input type="text" required name="name" value="{{application[1]}}">
+      </div>
+    
+      <div class="mb-2">
+        <label for="">Birthday</label><br>
+        <input type="date" name="birthday" value="{{application[3]}}">
+      </div>
+    
+      <div class="mb-2">
+        <label for="">Gender</label><br>
+        <input type="text" name="gender" value="{{application[2]}}">
+      </div>
+    
+      <div class="mb-2">
+        <label for="">Mobile</label><br>
+        <input type="number" required name="mobile" value="{{application[4]}}">
+      </div>
+    
+      <div class="mb-2">
+        <label for="">Address</label><br>
+        <textarea cols="30" rows="3" name="address">{{application[5]}}</textarea>
+      </div>
+
+       <div class="mb-2">
+        <label for="">Career</label><br>
+        <input type="text" required name="career" value="{{application[6]}}">
+      </div>
+
+       <div class="mb-2">
+        <label for="">Charge</label><br>
+        <input type="text" required name="charge" value="{{application[7]}}">
+      </div>
+      
+      <div>
+        <input type="submit">
+      </div>  
+    </form>
+<!--     <h4>Full Name</h4>
+    <div>{{application[1]}}</div>
     
     <h4>Birthday</h4>
-    <div>{{application['birthday']}}</div>
+    <div>{{application[2]}}</div>
   
     <h4>Gender</h4>
-    <div>{{application['gender']}}</div>
+    <div>{{application[3]}}</div>
   
     <h4>Mobile</h4>
-    <div>{{application['mobile']}}</div>
+    <div>{{application[4]}}</div>
   
     <h4>Address</h4>
-    <div>{{application['address']}}</div>
-  </div>
+    <div>{{application[5]}}</div>
+    
+    <h4>Career</h4>
+    <div>{{application[6]}}</div>
+    
+    <h4>Charge</h4>
+    <div>{{application[7]}}</div>
+  </div> -->
   {% include 'footer.html' %}
 </body>
 </html>
