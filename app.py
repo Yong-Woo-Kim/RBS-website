@@ -15,17 +15,19 @@ def hello_rbs():
 
 @app.route('/Teacher')
 def display_teacher():
-  return render_template('detail-info.html', title='Teachers' )
+    tbl_column = db.read_table_column()
+    Contents = db.load_teacher()
+    return render_template('detail-info.html', tbl_head=tbl_column, contents=Contents, title='Teachers')
   
 @app.route('/Student')
 def display_student():
   return render_template('detail-info.html', title='Students' )
 
-@app.route('/Teachers/apply', methods=['POST'])
-def apply_teacher():
-  data = request.form
-  db.add_teacher(data)
-  return render_template('application_submitted.html', application=data)
+# @app.route('/Teachers/apply', methods=['POST'])
+# def apply_teacher():
+#   data = request.form
+#   db.add_teacher(data)
+#   return render_template('application_submitted.html', application=data)
 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', debug=True)

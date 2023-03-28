@@ -2,12 +2,12 @@
 <form action="/{{title}}/apply" method="POST">
   <div class="mb-2">
     <label for="">Full Name</label><br>
-    <input type="text" name="name" placeholder="홍길동">
+    <input type="text" required name="name" placeholder="홍길동">
   </div>
 
   <div class="mb-2">
     <label for="">Birthday</label><br>
-    <input type="text" name="birthday" placeholder="2000-01-01">
+    <input type="date" name="birthday" placeholder="2000-01-01">
   </div>
 
   <div class="mb-2">
@@ -17,7 +17,7 @@
 
   <div class="mb-2">
     <label for="">Mobile</label><br>
-    <input type="text" name="mobile" placeholder="010-5555-7777">
+    <input type="number" required name="mobile" placeholder="010-5555-7777">
   </div>
 
   <div class="mb-2">

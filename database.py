@@ -24,6 +24,18 @@ def load_teacher_name():
   result = make_list(t_name)
   return result
 
+def load_teacher():
+    result = c.execute('select * from teacher')
+    teacher_info = result.fetchall()
+    return teacher_info
+
+
+def read_table_column():
+    query = 'select group_concat(name) from pragma_table_info("teacher")'
+    result = c.execute(query).fetchall()
+    column_info = list(result[0])
+    list_name = list(column_info[0].split(','))
+    return list_name
 
 def load_student_name():
   result = c.execute('select "display", name from student')
@@ -32,9 +44,9 @@ def load_student_name():
   return result
 
 
-def load_teacher(id):
-  result = c.execute('select * from teacher where id = ?', (id)).fetchall()
-  print(result)
+# def load_teacher(id):
+#   result = c.execute('select * from teacher where id = ?', (id)).fetchall()
+#   print(result)
 
 
 def add_teacher(data):
@@ -45,4 +57,4 @@ def add_teacher(data):
   conn.commit()
 
 
-load_teacher('1')
+# load_teacher('1')
